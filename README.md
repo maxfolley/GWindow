@@ -1,6 +1,6 @@
 GWindow
 =============
-A javascript utility for custom InfoWindows using the [Google Mapis V3 API](http://code.google.com/apis/maps/documentation/javascript/reference.html).
+A javascript utility for custom InfowWindows using the [Google Mapis V3 API](http://code.google.com/apis/maps/documentation/javascript/reference.html).
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var marker = new google.maps.Marker({
