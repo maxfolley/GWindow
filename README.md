@@ -28,13 +28,14 @@ Usage
         gWindow.setContent(content);
         gWindow.open(marker.getPosition());
     });
-    
-GWindow will look for an element with the close class in the content and assign the proper handlers for closing the window.
 
-The remove method will hid the window but will not remove it from the map.
-    
+Closing
+=============  
+GWindow will look for an element with the close class in the content and assign the proper handlers to call the remove method when clicked.
+You can also manually remove the window. 
+
     gWindow.remove();
     
-In order to completely remove the window from the map you its nullify its map.
+In order to completely remove the window and its map reference you must nullify its map.
 
     gWindow.setMap(null);
