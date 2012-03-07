@@ -52,10 +52,6 @@ GWindow.prototype.draw = function() {
     }
 }
 
-GWindow.prototype.onAdd = function() {        
-    
-}
-
 GWindow.prototype.onRemove = function() {
     this.windowContent_.style.visibility = "hidden";
     this.div_.style.visibility = "hidden";
