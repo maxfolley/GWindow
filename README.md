@@ -39,3 +39,40 @@ You can also manually remove the window.
 In order to completely remove the window and its map reference you must nullify its map.
 
     gWindow.setMap(null);
+    
+Styling
+=============
+The main container for the window is given the class "g-window". You can style this div and its contents using css.
+    
+    .g-window {
+        background: url("window_bg.png") no-repeat;
+        font-family: Verdana, Sans-serif;
+        height: 180px;
+        padding: 10px;
+        width: 280px;
+    }
+    
+    .g-window a.close {
+        border: solid 1px #CCC;
+        color: #CCC;
+        display: block;
+        font-size: 10px;
+        height: 15px;
+        line-height: 15px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        text-align: center;
+        text-decoration: none;
+        width: 15px;
+    }
+    
+    .g-window a.close:hover {
+        border-color: #26BDE3;
+        color: #26BDE3;
+    }
+    
+    .g-window h1 {
+        color: #333;
+        font-size: .8em;
+    }
