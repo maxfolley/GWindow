@@ -59,10 +59,9 @@ GWindow.prototype.onRemove = function() {
 
 GWindow.prototype.open = function(latLong) {
     this.latLong_ = latLong;
-    // Resize the image's DIV to fit the indicated dimensions.
+    
     var div = this.div_;
     div.style.visibility = "visible";
-    
     this.getPanes().floatPane.appendChild(this.div_);
     
     this.draw();
