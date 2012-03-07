@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+  <title>GWindow</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+    #map-canvas {
+        border: solid 1px #333;
+        height: 500px;
+        width: 800px;
+        margin: 0 auto;
+    }
+    .g-window {
+        background: url("window_bg.png") no-repeat;
+        height: 180px;
+        padding: 14px 20px 20px 14px;
+        width: 268px;
+    }
+    .g-window a.close {
+        border: solid 1px #CCC;
+        color: #CCC;
+        display: block;
+        font-family: Verdana, Sans-serif;
+        font-size: 10px;
+        height: 15px;
+        line-height: 15px;
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        text-align: center;
+        text-decoration: none;
+        width: 15px;
+    }
+    .g-window a.close:hover {
+        border-color: #26BDE3;
+        color: #26BDE3;
+    }
+    .g-window > div {
+        float: left;
+        height: 100%;
+        margin-right: 10px;
+        width: 100px;
+    }
+    .g-window h1 {
+        color: #333;
+        font-family: Verdana, Sans-serif;
+        font-size: .8em;
+        margin: 0 0 5px 0;
+    }
+    .g-window img {
+        border: solid 1px #E3E3E3;
+    }
+    .g-window p, .g-window em {
+        color: #666;
+        font-family: Verdana, Sans-serif;
+        font-size: .6em;
+        margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+    <div id="map-canvas"></div>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFfdvKPlscZtmXpIoVM_o1F2Xgwv29VYs&sensor=false"></script>
+    <script src="../GWindow.js"></script>
+    <script type="text/javascript">
+        var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(45.523452, -122.676207),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(45.51991, -122.707844),
+            map: map
+        });
+        
+        var gWindow = new GWindow(map, {offsetX: -150, offsetY: -206});
+        
+        google.maps.event.addListener(marker, "click", function() {
+            var content = "<div><img src='thumb.jpg'/><em>Japanese Gardens</em></div>";
+            content += "<h1>Portland, OR</h1>";
+            content += "<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>";
+            content += "<a href='#' class='close'>X</a>";
+            gWindow.setContent(content);
+            gWindow.open(marker.getPosition());
+        });
+    </script>
+</body>
+</html>
